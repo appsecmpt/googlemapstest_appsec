@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch JPEG Image</title>
+</head>
+<body>
+    <h1>Fetch and Display JPEG Image</h1>
+    <script>
+        // Define the URL of the JPEG file
+        const url = 'https://maps.googleapis.com/maps/api/staticmap?center=45%2C10&zoom=7&size=400x400&key=AIzaSyC-82yOAu8rgexIbBEXhJoR8VATBMsnrAI';
+
+        // Function to fetch the JPEG file
+        async function fetchJpeg() {
+            try {
+                const response = await fetch(url, {
+                    method: 'GET',
+                    headers: {
+                        'Accept': 'image/jpeg'
+                    }
+                });
+
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+
+                const blob = await response.blob();
+                const imageUrl = URL.createObjectURL(blob);
+
+                // Display the image in an <img> element
+                const img = document.createElement('img');
+                img.src = imageUrl;
+                document.body.appendChild(img);
+            } catch (error) {
+                console.error('There has been a problem with your fetch operation:', error);
+            }
+        }
+
+        // Call the function to fetch the JPEG file
+        fetchJpeg();
+    </script>
+</body>
+</html>
