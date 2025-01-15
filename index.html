@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fetch JPEG Image</title>
+    <title>API Check POC</title>
 </head>
 <body>
-    <h1>Fetch and Display JPEG Image</h1>
+    <h1>GMAP API test</h1>
     <script>
-        // Define the URL of the JPEG file
+        // Gmaps API
         const url = 'https://maps.googleapis.com/maps/api/staticmap?center=45%2C10&zoom=7&size=400x400&key=AIzaSyC-82yOAu8rgexIbBEXhJoR8VATBMsnrAI';
 
-        // Function to fetch the JPEG file
+        // Function to load the map as JPEG file
         async function fetchJpeg() {
             try {
                 const response = await fetch(url, {
